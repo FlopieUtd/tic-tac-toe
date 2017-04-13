@@ -83,4 +83,5 @@
 		$(".grid").removeClass("x o");
 		$(".grid").addClass("e");
 		$(".grid").html("");
+		$(".title").html("");
 	}
