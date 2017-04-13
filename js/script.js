@@ -1,10 +1,4 @@
 
-	// NEW GAME
-
-	var newGame = function () {
-		location.reload();
-	}
-
 	// DECLARE THE BOARD
 
 	var board = ["","","","","","","","",""]
@@ -81,4 +75,12 @@
 			) {
 			$(".title").html("it's a draw!");
 		}
+	}
+
+	// NEW GAME
+
+	var newGame = function () {
+		$(".grid").removeClass("x o");
+		$(".grid").addClass("e");
+		$(".grid").html("");
 	}
