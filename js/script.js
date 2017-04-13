@@ -28,15 +28,13 @@
 	// COMPUTER TURN
 
 	var computerTurn = function () {
-		setTimeout( function () {
-			var numberEmptySlots = $('.e').length;
-			var computerOptions = Math.floor(Math.random() * numberEmptySlots);
-			var computerChoice = $(".e").eq(computerOptions);
-			computerChoice.removeClass("e");
-			computerChoice.addClass("o");
-			computerChoice.html("o");
-			checkForOutcome();
-			}, 300)
+		var numberEmptySlots = $('.e').length;
+		var computerOptions = Math.floor(Math.random() * numberEmptySlots);
+		var computerChoice = $(".e").eq(computerOptions);
+		computerChoice.removeClass("e");
+		computerChoice.addClass("o");
+		computerChoice.html("o");
+		checkForOutcome();
 	}
 
 	// PLAYER TURN
