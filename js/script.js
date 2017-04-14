@@ -19,6 +19,21 @@
 		$(".container").append(gridSlot);
 	}
 
+	// KEEP TRACK OF TURN, 0 is PLAYER, 1 is COMPUTER
+
+	var turn = 0;
+
+	// PLAYER TURN
+
+	$(".grid").on("click", function (){
+		if ( $(this).hasClass("e") ) {
+			$(this).removeClass("e");
+			$(this).addClass("x");
+			$(this).html("x");
+			turn += 1;
+			checkForOutcome();			
+		}
+	})
 	// COMPUTER TURN
 
 	var computerTurn = function () {
@@ -28,20 +43,9 @@
 		computerChoice.removeClass("e");
 		computerChoice.addClass("o");
 		computerChoice.html("o");
+		turn -= 1;
 		checkForOutcome();
 	}
-
-	// PLAYER TURN
-
-	$(".grid").on("click", function (){
-		if ( $(this).hasClass("e") ) {
-			$(this).removeClass("e");
-			$(this).addClass("x");
-			$(this).html("x");
-			computerTurn();
-			checkForOutcome();			
-		}
-	})
 
 	// CHECK FOR OUTCOME 
 
@@ -74,6 +78,9 @@
 				$('.e').length == 0
 			) {
 			$(".title").html("it's a draw!");
+		}
+		if (turn == 1) {
+			computerTurn();
 		}
 	}
 
